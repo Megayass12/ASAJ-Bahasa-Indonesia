@@ -726,8 +726,8 @@ Kata berimbuhan yang tepat untuk mengisi bagian rumpang secara berurutan adalah.
       "melakukan – menyerah – diteladani",
       "dilakukan – menyerahkan – teladani"
     ],
-    answer: 2,
-    explanation: "Pilihan kata berimbuhan harus memperhatikan konteks kalimat: (1) 'Para ilmuwan terus melakukan penelitian' → kalimat aktif, subjek melakukan tindakan, jadi 'melakukan' (me-). (2) 'Tidak pernah menyerah' → kalimat aktif. (3) 'Patut kita diteladani' → kalimat pasif, jadi 'diteladani' (di-). Jawaban: melakukan – menyerah – diteladani."
+    answer: 0,
+    explanation: "Pilihan kata berimbuhan harus memperhatikan konteks kalimat: (1) 'Para ilmuwan terus melakukan penelitian' → kalimat aktif, subjek melakukan tindakan, jadi 'melakukan' (me-). (2) 'Tidak pernah menyerah' → kalimat aktif. (3) 'Patut kita teladani' → kalimat pasif. Jawaban: melakukan – menyerah – teladani."
   },
 
   // ── NO.35 · Ejaan penulisan kata ─────────────────────────────
