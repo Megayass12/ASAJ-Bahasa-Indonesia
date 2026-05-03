@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Latihan Soal ASAJ – Bahasa Indonesia Kelas 6 SD</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- HALAMAN COVER -->
+  <div id="page-cover" class="page active">
+    <div class="cover-deco">
+      <div class="deco-circle c1"></div>
+      <div class="deco-circle c2"></div>
+      <div class="deco-circle c3"></div>
+      <div class="deco-lines"></div>
+    </div>
+    <div class="cover-card">
+      <div class="cover-top-stripe"></div>
+      <div class="cover-inner">
+        <div class="cover-icon">📖</div>
+        <div class="badge-wrap">
+          <span class="badge">ASAJ 2025</span>
+          <span class="badge badge-green">Kelas 6 SD</span>
+        </div>
+        <h1 class="cover-title">Latihan Soal ASAJ<br/><em>Bahasa Indonesia</em></h1>
+        <div class="cover-divider"></div>
+        <ul class="cover-info">
+          <li><span class="info-icon">📋</span><span>40 Soal Pilihan Ganda</span></li>
+          <li><span class="info-icon">⏱️</span><span>Waktu 60 Menit</span></li>
+          <li><span class="info-icon">✏️</span><span>Bahasa Indonesia SD</span></li>
+        </ul>
+        <div class="name-input-wrap">
+          <label for="student-name">Nama Peserta</label>
+          <input type="text" id="student-name" placeholder="Tulis namamu di sini..." autocomplete="off"/>
+        </div>
+        <button class="btn-start" onclick="startExam()">
+          <span>Mulai Ujian</span>
+          <span class="btn-arrow">▶</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- HALAMAN SOAL -->
+  <div id="page-exam" class="page">
+    <header class="exam-header">
+      <div class="header-left">
+        <div class="subject-pill">
+          <span class="pill-icon">📖</span>
+          <span>Bahasa Indonesia · Kelas 6</span>
+        </div>
+        <span id="student-label" class="student-label"></span>
+      </div>
+      <div class="timer-wrap" id="timer-wrap">
+        <span class="timer-icon">⏱️</span>
+        <span id="timer">60:00</span>
+      </div>
+    </header>
+
+    <div class="exam-body">
+      <!-- Navigasi Soal -->
+      <aside class="nav-panel">
+        <p class="nav-title">📌 Navigasi Soal</p>
+        <div class="nav-legend">
+          <span class="leg answered"></span><small>Dijawab</small>
+          <span class="leg current"></span><small>Sekarang</small>
+          <span class="leg"></span><small>Belum</small>
+        </div>
+        <div id="nav-grid" class="nav-grid"></div>
+        <button class="btn-finish" onclick="finishExam()">✅ Selesai & Kumpulkan</button>
+      </aside>
+
+      <!-- Area Soal -->
+      <main class="question-area">
+        <div id="question-card" class="question-card">
+          <div class="q-header">
+            <span id="q-number" class="q-number">Soal 1 / 40</span>
+            <span id="q-topic" class="q-topic"></span>
+          </div>
+          <p id="q-text" class="q-text"></p>
+          <div id="q-options" class="q-options"></div>
+        </div>
+        <div class="nav-btns">
+          <button class="btn-nav" id="btn-prev" onclick="prevQuestion()">◀ Sebelumnya</button>
+          <button class="btn-nav btn-next" id="btn-next" onclick="nextQuestion()">Selanjutnya ▶</button>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- HALAMAN HASIL -->
+  <div id="page-result" class="page">
+    <div class="result-bg">
+      <div class="deco-circle c1"></div>
+      <div class="deco-circle c2"></div>
+    </div>
+    <div class="result-content">
+      <div id="result-emoji" class="result-emoji">🎉</div>
+      <h2 class="result-title">Ujian Selesai!</h2>
+      <p id="result-name" class="result-name"></p>
+
+      <div class="score-ring-wrap">
+        <svg class="score-ring" viewBox="0 0 120 120">
+          <circle class="ring-bg" cx="60" cy="60" r="50"/>
+          <circle id="ring-fill" class="ring-fill" cx="60" cy="60" r="50"/>
+        </svg>
+        <div class="score-text">
+          <span id="score-val">0</span>
+          <small>/100</small>
+        </div>
+      </div>
+
+      <div class="result-stats">
+        <div class="stat-box correct">
+          <span id="stat-correct">0</span>
+          <label>Benar ✅</label>
+        </div>
+        <div class="stat-box wrong">
+          <span id="stat-wrong">0</span>
+          <label>Salah ❌</label>
+        </div>
+        <div class="stat-box empty">
+          <span id="stat-empty">0</span>
+          <label>Kosong ⬜</label>
+        </div>
+      </div>
+
+      <p id="result-msg" class="result-msg"></p>
+
+      <div class="result-actions">
+        <button class="btn-review" onclick="reviewAnswers()">📖 Lihat Pembahasan</button>
+        <button class="btn-restart" onclick="restartExam()">🔄 Ulangi Ujian</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- HALAMAN PEMBAHASAN -->
+  <div id="page-review" class="page">
+    <div class="review-header">
+      <button class="btn-back" onclick="backToResult()">← Kembali ke Hasil</button>
+      <h2>📝 Pembahasan Jawaban</h2>
+    </div>
+    <div id="review-list" class="review-list"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
